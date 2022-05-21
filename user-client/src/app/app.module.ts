@@ -24,6 +24,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatListModule} from '@angular/material/list';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import {MatListModule} from '@angular/material/list';
     MatSelectModule,
     ReactiveFormsModule,
     MatListModule,
+    MatSnackBarModule
   ],
   providers: [
     {

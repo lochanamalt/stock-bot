@@ -16,14 +16,13 @@ export class ApiService {
   }
 
   subscribeCompanies(userid, companyList) {
-    return this.http.put(`${config.apiUri}/api/subscribe/` + userid, companyList);
+    // return this.http.put(`${config.apiUri}/api/subscribe/` + userid, companyList);
 
-    // return this.http.put(`${config.apiUri}/api/external`,
-    //   companyList)
-    //   .pipe(map((response: any) => {
-    //     return response;
-    //   }))
-    //   .pipe(catchError( this.handleError));
+    return this.http.put(`${config.apiUri}/api/subscribe/` + userid,
+      companyList)
+      .pipe(map((response: any) => {
+        return response;
+      }));
   }
 
 

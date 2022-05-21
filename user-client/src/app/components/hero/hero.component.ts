@@ -12,6 +12,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 export class HeroComponent implements OnInit {
   @ViewChild('companies') companySelectionList: MatSelectionList;
   profileJson: string = null;
+  profile = null;
   constructor(
     public auth: AuthService,
     private apiService: ApiService,
@@ -19,14 +20,17 @@ export class HeroComponent implements OnInit {
 
   ngOnInit() {
     this.auth.user$.subscribe(
-      (profile) => (this.profileJson = JSON.stringify(profile, null, 2))
-    );
+      (profile) => {
+          this.profileJson = JSON.stringify(profile, null, 2);
+          this.profile =  JSON.parse(this.profileJson);
+      });
   }
 
   subscribeCompanies() {
     const selected = this.getSelected();
-    const sub = this.profileJson.sub();
-    const userId = sub.split('|').pop().trim();
+    const userSub: string = this.profile.sub;
+    const userId = userSub.split('|').pop().trim();
+
     this.apiService.subscribeCompanies(userId, selected).subscribe(data => {
           this.snackBar.open('Successfully subscribed the selected companies. You\'ll be receiving stock analysis to your' +
             ' twitter DM daily', 'OK', { duration: 5000});

@@ -12,7 +12,7 @@
 <div class="container my-5" *ngIf="auth.isAuthenticated$ | async">
   <h4 class="my-5 text-center">Subscribe Companies </h4>
 <br>
-  <mat-selection-list #companies [multiple]="true" >
+  <mat-selection-list color="primary" #companies [multiple]="true" >
     <mat-list-option value="AMD">Advanced Micro Devices, Inc.</mat-list-option>
     <mat-list-option value="AAPL">Apple Inc.</mat-list-option>
     <mat-list-option value="GRAB">Grab Holdings Limited</mat-list-option>
@@ -25,8 +25,7 @@
   <div class="text-center">
     <button style="background-color: #191a29;border-color: #191a29;"
             class="btn btn-primary btn-margin"
-            (click)="subscribeCompanies()"
-    >
+            (click)="subscribeCompanies()" >
       Subscribe
     </button>
   </div>
