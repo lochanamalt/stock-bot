@@ -15,8 +15,8 @@ export class ApiService {
     return this.http.get(`${config.apiUri}/api/external`);
   }
 
-  subscribeCompanies(companyList) {
-    return this.http.put(`${config.apiUri}/api/subscribe`, companyList);
+  subscribeCompanies(userid, companyList) {
+    return this.http.put(`${config.apiUri}/api/subscribe/` + userid, companyList);
 
     // return this.http.put(`${config.apiUri}/api/external`,
     //   companyList)
