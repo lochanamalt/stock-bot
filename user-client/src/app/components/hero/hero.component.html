@@ -1,0 +1,36 @@
+<div class="text-center hero my-5" [hidden]="auth.isAuthenticated$ | async">
+    <img class="mb-3 app-logo" src="../../assets/logo.png" alt="Angular logo" />
+    <h1 class="mb-4">Stock Bot</h1>
+
+    <p class="lead">
+      An automated stock market analysis solution.
+  </p>
+  <h4 class="my-5 text-center">Login via Twitter to bring technical analysis to your DM </h4>
+
+</div>
+
+<div class="container my-5" *ngIf="auth.isAuthenticated$ | async">
+  <h4 class="my-5 text-center">Subscribe Companies </h4>
+<br>
+  <mat-selection-list color="primary" #companies [multiple]="true" >
+    <mat-list-option value="AMD">Advanced Micro Devices, Inc.</mat-list-option>
+    <mat-list-option value="AAPL">Apple Inc.</mat-list-option>
+    <mat-list-option value="GRAB">Grab Holdings Limited</mat-list-option>
+    <mat-list-option value="CSCO">Cisco Systems, Inc.</mat-list-option>
+    <mat-list-option value="NU">Nu Holdings Ltd.</mat-list-option>
+    <mat-list-option value="NIO">NIO Inc.</mat-list-option>
+    <mat-list-option value="NVDA">NVIDIA Corporation</mat-list-option>
+  </mat-selection-list>
+
+  <div class="text-center">
+    <button style="background-color: #191a29;border-color: #191a29;"
+            class="btn btn-primary btn-margin"
+            (click)="subscribeCompanies()" >
+      Subscribe
+    </button>
+  </div>
+
+
+</div>
+
+
